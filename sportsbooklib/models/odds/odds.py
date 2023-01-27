@@ -7,8 +7,9 @@ from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds.exceptions import InvalidOddsFormatException, ZeroOddsValueException
 from typing import Union
 
+
 class Odds:
-    def __init__(self, value: Union[int,Fraction,Decimal], format: OddsFormat):
+    def __init__(self, value: Union[int, Fraction, Decimal], format: OddsFormat):
         self.value = value
         self.format = format
         self.us_odds = 0
@@ -40,7 +41,7 @@ class Odds:
             self.set_uk_odds()
         else:
             raise InvalidOddsFormatException
-    
+
     def set_us_odds(self):
         self.us_odds = self.value
         if self.us_odds < 100 and self.us_odds >= -100:
@@ -50,7 +51,7 @@ class Odds:
 
     def set_eu_odds(self):
         try:
-            self.eu_odds = round(Decimal(self.value),3)
+            self.eu_odds = round(Decimal(self.value), 3)
             if self.eu_odds < 1:
                 raise ZeroOddsValueException
         except:
@@ -58,7 +59,7 @@ class Odds:
 
     def set_hk_odds(self):
         try:
-            self.hk_odds = round(Decimal(self.value),3)
+            self.hk_odds = round(Decimal(self.value), 3)
             if self.hk_odds <= 0:
                 raise ZeroOddsValueException
         except:
@@ -75,24 +76,26 @@ class Odds:
     def convert_to_eu_odds(self):
         if self.format == OddsFormat.US:
             if self.us_odds < 0:
-                self.eu_odds = round(100/self.us_odds+1,3)
+                self.eu_odds = round(100/self.us_odds+1, 3)
             else:
-                self.eu_odds = round(self.us_odds/100+1,3)
+                self.eu_odds = round(self.us_odds/100+1, 3)
         elif self.format == OddsFormat.HK:
             self.eu_odds = self.hk_odds + 1
         else:
-            self.eu_odds = round(self.uk_odds.numerator/Decimal(self.uk_odds.denominator)+1,3)
-    
+            self.eu_odds = round(self.uk_odds.numerator /
+                                 Decimal(self.uk_odds.denominator)+1, 3)
+
     def convert_to_hk_odds(self):
         if self.format == OddsFormat.US:
             if self.us_odds < 0:
-                self.hk_odds = round(100/self.us_odds,3)
+                self.hk_odds = round(100/self.us_odds, 3)
             else:
-                self.hk_odds = round(self.us_odds/100,3)
+                self.hk_odds = round(self.us_odds/100, 3)
         elif self.format == OddsFormat.EU:
             self.hk_odds = self.eu_odds-1
         else:
-            self.hk_odds = round(self.uk_odds.numerator/Decimal(self.uk_odds.denominator),3)
+            self.hk_odds = round(self.uk_odds.numerator /
+                                 Decimal(self.uk_odds.denominator), 3)
 
     def convert_to_uk_odds(self):
         if self.format == OddsFormat.US:
@@ -118,10 +121,13 @@ class Odds:
                 self.us_odds = int(100 / (self.hk_odds))
         else:
             if self.uk_odds.numerator < self.uk_odds.denominator:
-                self.us_odds = -1 * round(Decimal(100) / (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
+                self.us_odds = -1 * \
+                    round(Decimal(100) / (self.uk_odds.numerator /
+                          Decimal(self.uk_odds.denominator)))
             else:
-                self.us_odds = round(Decimal(100) * (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
-    
+                self.us_odds = round(
+                    Decimal(100) * (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
+
     def get_implied_odds(self):
         if self.us_odds < 0:
             positive_value = self.us_odds * -1
