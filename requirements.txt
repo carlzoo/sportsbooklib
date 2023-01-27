@@ -4,7 +4,7 @@ blinker==1.4
 certifi==2019.11.28
 chardet==3.0.4
 Click==7.0
-cloud-init==21.2
+cloud-init>=21.2
 colorama==0.4.3
 command-not-found==0.3
 configobj==5.0.6
@@ -58,6 +58,7 @@ service-identity==18.1.0
 simplejson==3.16.0
 six==1.14.0
 sos==4.1
+sportsbooklib==0.0.1
 ssh-import-id==5.10
 systemd-python==234
 tomli==2.0.1
