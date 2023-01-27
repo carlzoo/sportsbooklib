@@ -1,18 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from decimal import Decimal
 from fractions import Fraction
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds.exceptions import InvalidOddsFormatException, ZeroOddsValueException
+from typing import Union
 
 class Odds:
-    def __init__(self, event: str, value, format: OddsFormat):
-        self.event = event
+    def __init__(self, value: Union[int,Fraction,Decimal], format: OddsFormat):
         self.value = value
         self.format = format
         self.us_odds = 0
         self.eu_odds = 0
         self.hk_odds = 0
         self.uk_odds = 0
+        self.implieds_odds = 0
+
         self.parse_odds_value()
+        self.get_implied_odds()
 
     def parse_odds_value(self):
         if (not self.value) or (not self.format):
@@ -36,12 +42,10 @@ class Odds:
             raise InvalidOddsFormatException
     
     def set_us_odds(self):
-        value_to_parse = self.value[1:] if self.value[0] == '+' else self.value
-        try:
-            self.us_odds = int(round(Decimal(value_to_parse)))
-            if self.us_odds == 0:
-                raise ZeroOddsValueException
-        except:
+        self.us_odds = self.value
+        if self.us_odds < 100 and self.us_odds >= -100:
+            raise InvalidOddsFormatException
+        if self.us_odds == -100:
             raise InvalidOddsFormatException
 
     def set_eu_odds(self):
@@ -117,4 +121,23 @@ class Odds:
                 self.us_odds = -1 * round(Decimal(100) / (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
             else:
                 self.us_odds = round(Decimal(100) * (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
-        
+    
+    def get_implied_odds(self):
+        if self.us_odds < 0:
+            positive_value = self.us_odds * -1
+            self.implied_odds = positive_value/(positive_value + 100)
+        else:
+            self.implied_odds = 100/(self.us_odds + 100)
+
+    def __str__(self):
+        if self.format == OddsFormat.US:
+            if self.value > 0:
+                return '+' + str(self.us_odds)
+            else:
+                return str(self.us_odds)
+        elif self.format == OddsFormat.UK:
+            return str(self.uk_odds.numerator) + '/' + str(self.uk_odds.denominator)
+        elif self.format == OddsFormat.HK:
+            return str(self.hk_odds)
+        else:
+            return str(self.eu_odds)

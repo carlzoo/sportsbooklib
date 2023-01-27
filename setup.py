@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
   
 setup(
     name='sportsbooklib',
@@ -6,7 +6,8 @@ setup(
     description='A sample Python package',
     author='Carl Zhou',
     author_email='dev@carlzhou.com',
-    packages=[],
+    packages=find_packages(),
     install_requires=[
+        'pytest'
     ],
 )
