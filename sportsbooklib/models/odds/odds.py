@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from fractions import Fraction
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds.exceptions import InvalidOddsFormatException, ZeroOddsValueException
@@ -54,7 +54,7 @@ class Odds:
             self.eu_odds = round(Decimal(self.value), 3)
             if self.eu_odds < 1:
                 raise ZeroOddsValueException
-        except:
+        except InvalidOperation:
             raise InvalidOddsFormatException
 
     def set_hk_odds(self):
@@ -62,7 +62,7 @@ class Odds:
             self.hk_odds = round(Decimal(self.value), 3)
             if self.hk_odds <= 0:
                 raise ZeroOddsValueException
-        except:
+        except InvalidOperation:
             raise InvalidOddsFormatException
 
     def set_uk_odds(self):
