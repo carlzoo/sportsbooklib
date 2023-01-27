@@ -70,7 +70,7 @@ class Odds:
             self.uk_odds = Fraction(self.value)
             if self.uk_odds == 0:
                 raise ZeroOddsValueException
-        except:
+        except (ValueError, ZeroDivisionError):
             raise InvalidOddsFormatException
 
     def convert_to_eu_odds(self):
