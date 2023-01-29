@@ -47,11 +47,11 @@ def test_valid_hk_odds():
 
 def test_invalid_uk_odds():
     with pytest.raises(InvalidOddsFormatException):
-        Odds(Fraction(-2/3), OddsFormat.UK)
+        Odds(Fraction(-2, 3), OddsFormat.UK)
 
 
 def test_valid_uk_odds():
-    assert (Odds(Fraction(1/2), OddsFormat.UK).uk_odds == Fraction(1/2))
+    assert (Odds(Fraction(1, 2), OddsFormat.UK).uk_odds == Fraction(1, 2))
 
 
 def test_conversion_us_negative():
@@ -59,7 +59,7 @@ def test_conversion_us_negative():
     assert (odds.us_odds == -300)
     assert (odds.eu_odds == Decimal('1.333'))
     assert (odds.hk_odds == Decimal('0.333'))
-    assert (odds.uk_odds == Fraction(1/3))
+    assert (odds.uk_odds == Fraction(1, 3))
 
 
 def test_conversion_us_positive():
@@ -100,3 +100,19 @@ def test_conversion_hk_over_1():
     assert (odds.eu_odds == Decimal('2.640'))
     assert (odds.hk_odds == Decimal('1.640'))
     assert (odds.uk_odds == Fraction(41, 25))
+
+
+def test_conversion_uk_under_1():
+    odds = Odds(Fraction(1, 3), OddsFormat.UK)
+    assert (odds.us_odds == -300)
+    assert (odds.eu_odds == Decimal('1.333'))
+    assert (odds.hk_odds == Decimal('0.333'))
+    assert (odds.uk_odds == Fraction(1, 3))
+
+
+def test_conversion_uk_over_1():
+    odds = Odds(Fraction(11, 10), OddsFormat.UK)
+    assert (odds.us_odds == 110)
+    assert (odds.eu_odds == Decimal('2.10'))
+    assert (odds.hk_odds == Decimal('1.10'))
+    assert (odds.uk_odds == Fraction(11, 10))
