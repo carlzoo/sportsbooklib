@@ -106,13 +106,14 @@ class Odds:
     def convert_to_uk_odds(self):
         if self.format == OddsFormat.US:
             if self.us_odds < 0:
-                self.uk_odds = Fraction(100 / (-1 * self.us_odds))
+                self.uk_odds = Fraction(
+                    100 / (-1 * self.us_odds)).limit_denominator()
             else:
-                self.uk_odds = Fraction(self.us_odds/100)
+                self.uk_odds = Fraction(self.us_odds/100).limit_denominator()
         elif self.format == OddsFormat.EU:
-            self.uk_odds = Fraction(self.eu_odds-1)
+            self.uk_odds = Fraction(self.eu_odds-1).limit_denominator()
         else:
-            self.uk_odds = Fraction(self.hk_odds)
+            self.uk_odds = Fraction(self.hk_odds).limit_denominator()
 
     def convert_to_us_odds(self):
         if self.format == OddsFormat.EU:
