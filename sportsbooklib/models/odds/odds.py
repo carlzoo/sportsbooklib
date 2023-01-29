@@ -113,17 +113,16 @@ class Odds:
             if self.eu_odds < 2:
                 self.us_odds = int(-1 * 100 / (self.eu_odds-1))
             else:
-                self.us_odds = int(100 / (self.eu_odds-1))
+                self.us_odds = int(100 * self.eu_odds - 100)
         elif self.format == OddsFormat.HK:
             if self.hk_odds < 1:
                 self.us_odds = int(-1 * 100 / (self.hk_odds))
             else:
-                self.us_odds = int(100 / (self.hk_odds))
+                self.us_odds = int(100 * (self.hk_odds))
         else:
             if self.uk_odds.numerator < self.uk_odds.denominator:
-                self.us_odds = -1 * \
-                    round(Decimal(100) / (self.uk_odds.numerator /
-                          Decimal(self.uk_odds.denominator)))
+                self.us_odds = -1 * round(Decimal(100) / (self.uk_odds.numerator /
+                                                          Decimal(self.uk_odds.denominator)))
             else:
                 self.us_odds = round(
                     Decimal(100) * (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
