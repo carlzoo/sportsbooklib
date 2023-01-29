@@ -37,8 +37,14 @@ class Odds:
             self.convert_to_uk_odds()
         elif self.format == OddsFormat.HK:
             self.set_hk_odds()
+            self.convert_to_us_odds()
+            self.convert_to_eu_odds()
+            self.convert_to_uk_odds()
         elif self.format == OddsFormat.UK:
             self.set_uk_odds()
+            self.convert_to_us_odds()
+            self.convert_to_eu_odds()
+            self.convert_to_hk_odds()
         else:
             raise InvalidOddsFormatException
 
@@ -116,7 +122,7 @@ class Odds:
                 self.us_odds = int(100 * self.eu_odds - 100)
         elif self.format == OddsFormat.HK:
             if self.hk_odds < 1:
-                self.us_odds = int(-1 * 100 / (self.hk_odds))
+                self.us_odds = int(-1 * 100 / self.hk_odds)
             else:
                 self.us_odds = int(100 * (self.hk_odds))
         else:
