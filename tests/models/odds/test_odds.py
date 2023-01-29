@@ -68,3 +68,19 @@ def test_conversion_us_positive():
     assert (odds.eu_odds == Decimal('2.000'))
     assert (odds.hk_odds == Decimal('1.000'))
     assert (odds.uk_odds == Fraction(1))
+
+
+def test_conversion_eu_under_2():
+    odds = Odds(Decimal(1.64), OddsFormat.EU)
+    assert (odds.us_odds == -156)
+    assert (odds.eu_odds == Decimal('1.640'))
+    assert (odds.hk_odds == Decimal('0.640'))
+    assert (odds.uk_odds == Fraction(16, 25))
+
+
+def test_conversion_eu_over_2():
+    odds = Odds(Decimal(2.64), OddsFormat.EU)
+    assert (odds.us_odds == 164)
+    assert (odds.eu_odds == Decimal('2.640'))
+    assert (odds.hk_odds == Decimal('1.640'))
+    assert (odds.uk_odds == Fraction(41, 25))
