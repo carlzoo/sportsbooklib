@@ -137,9 +137,10 @@ class Odds:
     def get_implied_odds(self):
         if self.us_odds < 0:
             positive_value = self.us_odds * -1
-            self.implied_odds = positive_value/(positive_value + 100)
+            self.implied_odds = round(
+                Decimal(positive_value/(positive_value + 100)), 4)
         else:
-            self.implied_odds = 100/(self.us_odds + 100)
+            self.implied_odds = round(Decimal(100/(self.us_odds + 100)), 4)
 
     def __str__(self):
         if self.format == OddsFormat.US:
