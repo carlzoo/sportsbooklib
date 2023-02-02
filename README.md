@@ -37,4 +37,4 @@ Example: Watch this space
 
 # Contributing
 
-For contributions and discussions check our [Contributing Guide]()
+For contributions and discussions check our [Contributing Guide](https://github.com/carlzoo/sportsbooklib/blob/main/CONTRIBUTING.md)
