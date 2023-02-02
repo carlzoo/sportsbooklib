@@ -33,3 +33,8 @@ autopep8 --in-place --recursive .
 Simply import ```sportsbooklib``` into your python code.
 
 Example: Watch this space
+
+
+# Contributing
+
+For contributions and discussions check our [Contributing Guide]()
