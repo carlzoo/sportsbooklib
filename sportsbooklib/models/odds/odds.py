@@ -19,7 +19,6 @@ class Odds:
         self.implieds_odds = 0
 
         self.parse_odds_value()
-        self.get_implied_odds()
 
     def parse_odds_value(self):
         if (not self.value) or (not self.format):
@@ -133,14 +132,6 @@ class Odds:
             else:
                 self.us_odds = round(
                     Decimal(100) * (self.uk_odds.numerator/Decimal(self.uk_odds.denominator)))
-
-    def get_implied_odds(self):
-        if self.us_odds < 0:
-            positive_value = self.us_odds * -1
-            self.implied_odds = round(
-                Decimal(positive_value/(positive_value + 100)), 4)
-        else:
-            self.implied_odds = round(Decimal(100/(self.us_odds + 100)), 4)
 
     def __str__(self):
         if self.format == OddsFormat.US:
