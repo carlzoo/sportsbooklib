@@ -1,3 +1,6 @@
+[![Actions Status](https://github.com/carlzoo/sportsbooklib/workflows/build/badge.svg)](https://github.com/carlzoo/sportsbooklib/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # sportsbooklib
 Python module for performing sportsbook odds calculations
 
