@@ -9,6 +9,17 @@ from typing import Union
 
 
 class Odds:
+    """
+    The Odds Object.
+
+    Attributes
+    ----------
+    value : Union[int, Fraction, Decimal]
+        The odds value as an integer, Decimal or Fraction
+    format : OddsFormat
+        The format of the odds as OddsFormat (US, EU, HK, UK)
+    """
+
     def __init__(self, value: Union[int, Fraction, Decimal], format: OddsFormat):
         self.value = value
         self.format = format

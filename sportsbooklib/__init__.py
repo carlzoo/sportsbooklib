@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Top-level package for sportsbooklib."""
 
 __author__ = """Carl Zhou"""
