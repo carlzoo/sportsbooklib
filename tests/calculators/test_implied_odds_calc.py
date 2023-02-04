@@ -23,3 +23,17 @@ def test_2_odds_equal():
         Odds(-110, OddsFormat.US), Odds(-110, OddsFormat.US)])
     np.testing.assert_almost_equal(
         res['implied_probability'], [Decimal('0.5238'), Decimal('0.5238')], decimal=4)
+
+
+def test_2_odds_unequal():
+    res = get_implied_probability([
+        Odds(-120, OddsFormat.US), Odds(100, OddsFormat.US)])
+    np.testing.assert_almost_equal(
+        res['implied_probability'], [Decimal('0.5455'), Decimal('0.5')], decimal=4)
+
+
+def test_3_odds():
+    res = get_implied_probability([
+        Odds(262, OddsFormat.US), Odds(340, OddsFormat.US), Odds(262, OddsFormat.US)])
+    np.testing.assert_almost_equal(
+        res['implied_probability'], [Decimal('0.2762'), Decimal('0.2272'), Decimal('0.2762')], decimal=4)
