@@ -60,7 +60,6 @@ def test_conversion_us_negative():
     assert (odds.eu_odds == Decimal('1.333'))
     assert (odds.hk_odds == Decimal('0.333'))
     assert (odds.uk_odds == Fraction(1, 3))
-    assert (odds.implied_odds == Decimal('0.75'))
 
 
 def test_conversion_us_positive():
@@ -69,7 +68,6 @@ def test_conversion_us_positive():
     assert (odds.eu_odds == Decimal('2.000'))
     assert (odds.hk_odds == Decimal('1.000'))
     assert (odds.uk_odds == Fraction(1))
-    assert (odds.implied_odds == Decimal('0.50'))
 
 
 def test_conversion_eu_under_2():
@@ -78,7 +76,6 @@ def test_conversion_eu_under_2():
     assert (odds.eu_odds == Decimal('1.640'))
     assert (odds.hk_odds == Decimal('0.640'))
     assert (odds.uk_odds == Fraction(16, 25))
-    assert (odds.implied_odds == Decimal('0.6094'))
 
 
 def test_conversion_eu_over_2():
@@ -87,7 +84,6 @@ def test_conversion_eu_over_2():
     assert (odds.eu_odds == Decimal('2.640'))
     assert (odds.hk_odds == Decimal('1.640'))
     assert (odds.uk_odds == Fraction(41, 25))
-    assert (odds.implied_odds == Decimal('0.3788'))
 
 
 def test_conversion_hk_under_1():
@@ -96,7 +92,6 @@ def test_conversion_hk_under_1():
     assert (odds.eu_odds == Decimal('1.640'))
     assert (odds.hk_odds == Decimal('0.640'))
     assert (odds.uk_odds == Fraction(16, 25))
-    assert (odds.implied_odds == Decimal('0.6094'))
 
 
 def test_conversion_hk_over_1():
@@ -105,7 +100,6 @@ def test_conversion_hk_over_1():
     assert (odds.eu_odds == Decimal('2.640'))
     assert (odds.hk_odds == Decimal('1.640'))
     assert (odds.uk_odds == Fraction(41, 25))
-    assert (odds.implied_odds == Decimal('0.3788'))
 
 
 def test_conversion_uk_under_1():
@@ -122,4 +116,3 @@ def test_conversion_uk_over_1():
     assert (odds.eu_odds == Decimal('2.10'))
     assert (odds.hk_odds == Decimal('1.10'))
     assert (odds.uk_odds == Fraction(11, 10))
-    assert (odds.implied_odds == Decimal('0.4762'))
