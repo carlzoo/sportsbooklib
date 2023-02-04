@@ -13,8 +13,18 @@ If you have an idea for a new feature or improvement, please open an issue to di
 ## To submit a pull request:
 1. Fork the repository.
 2. Create a new branch for your changes.
-3. Make your changes.
+3. Make your changes. Make sure all changes are documented using docstrings and use pdoc3 to generate documentation files.
 4. Push your changes to your forked repository.
 5. Submit a pull request to the main repository.
+
+## Generating doucmentation
+Use pdoc3 to generate documentation
+```
+pip install pdoc3
+```
+In the project root directory:
+```
+pdoc --html -o docs sportsbooklib
+```
 
 ## Thank you for your contributions!
