@@ -4,6 +4,9 @@
 # sportsbooklib
 Python module for performing sportsbook odds calculations
 
+# Documentation
+Documentation can be found in the [docs](https://github.com/carlzoo/sportsbooklib/tree/main/docs) directory
+
 # Setup
 
 Requirements: Python >=3.6
