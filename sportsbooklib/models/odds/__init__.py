@@ -1,1 +1,3 @@
-__all__ = ["echo", "surround", "reverse"]
+"""
+The submodule with the Odds class.
+"""
