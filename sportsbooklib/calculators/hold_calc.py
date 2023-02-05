@@ -7,6 +7,7 @@ from sportsbooklib.models.odds.odds import Odds
 
 def get_hold(odds: List[Odds]) -> Decimal:
     """
+
     Calculate hold, given list of Odds, where length of list > 1
 
     Parameters

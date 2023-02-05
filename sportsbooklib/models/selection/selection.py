@@ -3,6 +3,7 @@ from sportsbooklib.models.odds.odds import Odds
 
 class Selection:
     """
+
     The Selection Object.
 
     Attributes

@@ -10,6 +10,7 @@ from typing import Union
 
 class Odds:
     """
+
     The Odds Object.
 
     Attributes

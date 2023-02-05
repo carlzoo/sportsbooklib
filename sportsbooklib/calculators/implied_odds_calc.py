@@ -7,6 +7,7 @@ from sportsbooklib.models.odds.odds import Odds
 
 def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:
     '''
+
     Given list of Odds, calculate the implied probability and fair odds.
     Based on https://github.com/octosport/octopy/blob/master/octopy/implied.py
 

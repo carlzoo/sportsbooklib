@@ -1,3 +1,3 @@
 """
-The calculator submodule.
+The calculators submodule.
 """

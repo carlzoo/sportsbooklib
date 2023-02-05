@@ -3,7 +3,8 @@ from enum import Enum
 
 class OddsFormat(Enum):
     """
-    OddsFormat:
+
+    The following are valid values for OddsFormat:
 
         - US - US Format (-110)
         - EU - European Format (1.909)
