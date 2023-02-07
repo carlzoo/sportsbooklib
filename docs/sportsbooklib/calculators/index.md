@@ -1,9 +1,10 @@
 Module sportsbooklib.calculators
 ================================
-The calculator submodule.
+The calculators submodule.
 
 Sub-modules
 -----------
+* sportsbooklib.calculators.arbitrage_calc
 * sportsbooklib.calculators.exceptions
 * sportsbooklib.calculators.hold_calc
 * sportsbooklib.calculators.implied_odds_calc
