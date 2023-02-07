@@ -31,3 +31,16 @@ def test_arbitrage_calc_3_way():
         result['stakes'], [Decimal('311.5110'), Decimal('40.7615'), Decimal('10.9473')], decimal=4)
     np.testing.assert_almost_equal(
         result['profit'], [Decimal('19.9386')], decimal=4)
+
+
+def test_arbitrage_negative_profit():
+    odds = [
+        Odds(-110, OddsFormat.US),
+        Odds(-110, OddsFormat.US)
+    ]
+    result = get_arbitrage(
+        Decimal('110'), odds)
+    np.testing.assert_almost_equal(
+        result['stakes'], [Decimal('54.9999'), Decimal('54.9999')], decimal=4)
+    np.testing.assert_almost_equal(
+        result['profit'], [Decimal('-5.005')], decimal=4)
