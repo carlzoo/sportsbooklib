@@ -11,3 +11,11 @@ Classes
 
     * builtins.Exception
     * builtins.BaseException
+
+`NegativeStakeInputException(*args, **kwargs)`
+:   Must provide positive stake input
+
+    ### Ancestors (in MRO)
+
+    * builtins.Exception
+    * builtins.BaseException

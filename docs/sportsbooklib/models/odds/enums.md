@@ -5,7 +5,7 @@ Classes
 -------
 
 `OddsFormat(value, names=None, *, module=None, qualname=None, type=None, start=1)`
-:   OddsFormat:
+:   The following are valid values for OddsFormat:
     
         - US - US Format (-110)
         - EU - European Format (1.909)
