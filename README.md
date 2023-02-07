@@ -47,7 +47,28 @@ autopep8 --in-place --recursive .
 # Usage
 Simply import ```sportsbooklib``` into your python code.
 
-Example: Watch this space
+Example: 
+```
+>>> from sportsbooklib.models.odds.odds import Odds
+>>> from sportsbooklib.models.odds.enums import OddsFormat
+>>> Odds(-500, OddsFormat.US).eu_odds
+Decimal('1.200')
+>>> Odds(-500, OddsFormat.EU)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  ...
+  raise InvalidOddsFormatException
+sportsbooklib.models.odds.exceptions.InvalidOddsFormatException
+>>> from decimal import Decimal
+>>> odds = [
+...         Odds(Decimal('1.18'), OddsFormat.EU),
+...         Odds(Decimal('7.00'), OddsFormat.EU)
+    ]...     ]
+>>> from sportsbooklib.calculators.arbitrage_calc import get_arbitrage
+>>> get_arbitrage(
+...         Decimal('500'), odds)
+{'stakes': [Decimal('427.8728606356968215158924206'), Decimal('72.12713936430317848410757948')], 'profit': Decimal('4.8899755501222493887530562')}
+```
 
 
 # Contributing
