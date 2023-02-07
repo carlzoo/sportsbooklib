@@ -1,9 +1,21 @@
 from decimal import Decimal
 import numpy as np
+import pytest
 
 from sportsbooklib.calculators.arbitrage_calc import get_arbitrage
+from sportsbooklib.calculators.exceptions import NegativeStakeInputException
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds.odds import Odds
+
+
+def test_negative_stake():
+    odds = [
+        Odds(Decimal('1.18'), OddsFormat.EU),
+        Odds(Decimal('7.00'), OddsFormat.EU)
+    ]
+    with pytest.raises(NegativeStakeInputException):
+        get_arbitrage(
+            Decimal('-500'), odds)
 
 
 def test_arbitrage_calc_2_way():
