@@ -4,6 +4,15 @@
 # sportsbooklib
 Python module for performing sportsbook odds calculations
 
+# Features
+The follow features are supported:
+- Conversion between US (-110), EU(1.909), UK (10/11), HK (0.909) formats
+- Calculating the implied probability and fair odds
+- Calculating the hold
+- Arbitrage Calculator
+
+Planned features in [issues](https://github.com/carlzoo/sportsbooklib/labels/enhancement).
+
 # Documentation
 Documentation can be found in the [docs](https://github.com/carlzoo/sportsbooklib/tree/main/docs) directory
 
