@@ -24,7 +24,7 @@ pip install pdoc3
 ```
 In the project root directory:
 ```
-pdoc -o docs sportsbooklib
+pdoc3 -o docs sportsbooklib
 ```
 
 ## Thank you for your contributions!
