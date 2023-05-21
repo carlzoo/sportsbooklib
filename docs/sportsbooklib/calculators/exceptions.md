@@ -12,6 +12,14 @@ Classes
     * builtins.Exception
     * builtins.BaseException
 
+`InvalidTargetLegException(*args, **kwargs)`
+:   Target leg must be 0 to len(target_legs)-1
+
+    ### Ancestors (in MRO)
+
+    * builtins.Exception
+    * builtins.BaseException
+
 `NegativeImpliedProbabilityException(*args, **kwargs)`
 :   Implied Probability must be greater or equal to 0
 

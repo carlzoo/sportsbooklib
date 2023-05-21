@@ -27,5 +27,22 @@ Functions
         final_odds (Odds): The final odds of the bet.
         target_leg (int): The index in leg_odds to use. Default is 0.
     
+    Raises:
+        InvalidTargetLegException
+        InvalidNumberOfInputsException
+    
+    Returns:
+        Decimal: The expected value of the bet.
+
+    
+`get_expected_value_for_selections(selections: List[sportsbooklib.models.selection.Selection], final_odds: sportsbooklib.models.odds.Odds, target_leg: int = 0) ‑> decimal.Decimal`
+:   Calculate the expected value of a bet for the target_leg index in selections.
+    Selection Wrapper for get_expected_value_for_legs
+    
+    Args:
+        selections (List[Selection]): List of selections.
+        final_odds (Odds): The final odds of the bet.
+        target_leg (int): The index in leg_odds to use. Default is 0.
+    
     Returns:
         Decimal: The expected value of the bet.
