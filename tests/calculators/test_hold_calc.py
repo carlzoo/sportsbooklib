@@ -2,7 +2,7 @@ from decimal import Decimal
 from sportsbooklib.calculators.hold_calc import get_hold_for_selections
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds import Odds
-from sportsbooklib.models.selection.selection import Selection
+from sportsbooklib.models.selection import Selection
 import numpy as np
 
 

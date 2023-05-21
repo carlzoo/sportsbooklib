@@ -1,7 +1,7 @@
 from decimal import Decimal
 from typing import List
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
-from sportsbooklib.models.selection.selection import Selection
+from sportsbooklib.models.selection import Selection
 from sportsbooklib.models.odds import Odds
 
 
