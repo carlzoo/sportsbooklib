@@ -2,7 +2,7 @@ from decimal import Decimal
 from typing import List, Mapping
 import numpy as np
 from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:

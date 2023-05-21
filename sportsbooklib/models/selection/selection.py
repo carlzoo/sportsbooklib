@@ -1,4 +1,4 @@
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 class Selection:

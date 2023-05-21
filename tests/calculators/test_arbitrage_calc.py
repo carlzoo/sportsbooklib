@@ -5,7 +5,7 @@ import pytest
 from sportsbooklib.calculators.arbitrage_calc import get_arbitrage
 from sportsbooklib.calculators.exceptions import NegativeStakeInputException
 from sportsbooklib.models.odds.enums import OddsFormat
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def test_negative_stake():

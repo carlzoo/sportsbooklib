@@ -5,7 +5,7 @@ import pytest
 from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
 from sportsbooklib.models.odds.enums import OddsFormat
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def test_invalid_input_empty_list():
