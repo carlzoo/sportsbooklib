@@ -5,7 +5,7 @@ Functions
 ---------
 
     
-`get_hold(odds: List[sportsbooklib.models.odds.odds.Odds]) ‑> decimal.Decimal`
+`get_hold(odds: List[sportsbooklib.models.odds.Odds]) ‑> decimal.Decimal`
 :   Calculate hold, given list of Odds, where length of list > 1
     
     Parameters
