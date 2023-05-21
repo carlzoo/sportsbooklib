@@ -3,7 +3,8 @@ import pytest
 import numpy as np
 from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException, InvalidTargetLegException, NegativeImpliedProbabilityException
 
-from sportsbooklib.calculators.expected_value_calc import get_expected_value, Odds, get_expected_value_for_legs, get_expected_value_for_selections
+from sportsbooklib.calculators.expected_value_calc import get_expected_value, Odds, get_expected_value_for_legs
+from sportsbooklib.calculators.expected_value_calc import get_expected_value_for_selections
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.selection import Selection
 
