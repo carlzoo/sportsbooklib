@@ -31,6 +31,9 @@ def get_expected_value(implied_probability: Decimal, final_odds: Odds) -> Decima
         implied_probability (Decimal): The implied probability of winning the bet.
         final_odds (Odds): The final odds of the bet.
 
+    Raises:
+        NegativeImpliedProbabilityException
+
     Returns:
         Decimal: The expected value of the bet.
     """
