@@ -1,5 +1,6 @@
 from decimal import Decimal
 from typing import List
+from sportsbooklib.calculators.exceptions import NegativeImpliedProbabilityException
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
 
 from sportsbooklib.models.odds.odds import Odds
@@ -33,8 +34,10 @@ def get_expected_value(implied_probability: Decimal, final_odds: Odds) -> Decima
     Returns:
         Decimal: The expected value of the bet.
     """
+    if implied_probability < 0:
+        raise NegativeImpliedProbabilityException
 
     implied_loss_probabilty = 1 - implied_probability
     amount_won = final_odds.us_odds if final_odds.us_odds > 0 else (
-        100 / (-1 * final_odds.us_odds)) * 100
+        Decimal(100 / (-1 * final_odds.us_odds)) * 100)
     return round((implied_probability * amount_won) - implied_loss_probabilty * 100, 3)
