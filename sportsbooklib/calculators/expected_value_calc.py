@@ -1,6 +1,6 @@
 from decimal import Decimal
 from typing import List
-from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException, InvalidTargetLegException, NegativeImpliedProbabilityException
+from sportsbooklib.calculators.exceptions import *
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
 
 from sportsbooklib.models.odds import Odds
