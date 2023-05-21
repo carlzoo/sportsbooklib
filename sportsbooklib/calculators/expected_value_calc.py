@@ -47,7 +47,7 @@ def get_expected_value_for_selections(selections: List[Selection], final_odds: O
     Returns:
         Decimal: The expected value of the bet.
     """
-    return get_expected_value_for_legs(list(selections.map(lambda x: x.odds)), final_odds, target_leg)
+    return get_expected_value_for_legs(list(map(lambda x: x.odds, selections)), final_odds, target_leg)
 
 
 def get_expected_value(implied_probability: Decimal, final_odds: Odds) -> Decimal:
