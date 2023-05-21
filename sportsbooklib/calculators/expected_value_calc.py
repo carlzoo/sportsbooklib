@@ -1,6 +1,6 @@
 from decimal import Decimal
 from typing import List
-from sportsbooklib.calculators.exceptions import NegativeImpliedProbabilityException
+from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException, InvalidTargetLegException, NegativeImpliedProbabilityException
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
 
 from sportsbooklib.models.odds import Odds
@@ -16,9 +16,19 @@ def get_expected_value_for_legs(leg_odds: List[Odds], final_odds: Odds, target_l
         final_odds (Odds): The final odds of the bet.
         target_leg (int): The index in leg_odds to use. Default is 0.
 
+    Raises:
+        InvalidTargetLegException
+        InvalidNumberOfInputsException
+
     Returns:
         Decimal: The expected value of the bet.
     """
+
+    if len(leg_odds) < 2:
+        raise InvalidNumberOfInputsException
+
+    if target_leg < 0 or target_leg >= len(leg_odds):
+        raise InvalidTargetLegException
 
     implied_fair_odds = get_implied_probability(leg_odds)
     return get_expected_value(implied_fair_odds['fair_odds'][target_leg], final_odds)

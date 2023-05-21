@@ -11,3 +11,8 @@ class NegativeStakeInputException(Exception):
 class NegativeImpliedProbabilityException(Exception):
     'Implied Probability must be greater or equal to 0'
     pass
+
+
+class InvalidTargetLegException(Exception):
+    'Target leg must be 0 to len(target_legs)-1'
+    pass
