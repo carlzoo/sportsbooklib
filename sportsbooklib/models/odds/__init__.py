@@ -2,9 +2,6 @@
 The submodule with the Odds class.
 """
 
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from decimal import Decimal, InvalidOperation
 from fractions import Fraction
 from sportsbooklib.models.odds.enums import OddsFormat
