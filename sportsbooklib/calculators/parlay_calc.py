@@ -3,9 +3,9 @@ from math import prod
 from typing import List, Mapping, Union
 from sportsbooklib.models.exceptions import InvalidSelectionsInputException
 from sportsbooklib.models.odds.enums import OddsFormat
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
-from sportsbooklib.models.selection.selection import Selection
+from sportsbooklib.models.selection import Selection
 
 
 def get_parlay_payout(stake: Decimal, selections: List[Selection]) -> List[Mapping[str, Union[Decimal, Odds]]]:

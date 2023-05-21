@@ -4,7 +4,7 @@ Module sportsbooklib.models.selection.selection
 Classes
 -------
 
-`Selection(name: str, odds: sportsbooklib.models.odds.odds.Odds)`
+`Selection(name: str, odds: sportsbooklib.models.odds.Odds)`
 :   The Selection Object.
     
     Attributes

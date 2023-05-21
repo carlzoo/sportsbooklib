@@ -3,7 +3,7 @@ from typing import List
 from sportsbooklib.calculators.exceptions import NegativeImpliedProbabilityException
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
 
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def get_expected_value_for_legs(leg_odds: List[Odds], final_odds: Odds, target_leg: int = 0) -> Decimal:

@@ -2,7 +2,7 @@ from decimal import Decimal
 from typing import Mapping, List, Union
 from sportsbooklib.calculators.exceptions import NegativeStakeInputException
 from sportsbooklib.calculators.implied_odds_calc import get_implied_probability
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def get_arbitrage(stake: Decimal, odds: List[Odds]) -> Mapping[str, Union[List[Decimal], Decimal]]:

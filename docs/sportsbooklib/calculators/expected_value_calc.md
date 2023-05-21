@@ -5,7 +5,7 @@ Functions
 ---------
 
     
-`get_expected_value(implied_probability: decimal.Decimal, final_odds: sportsbooklib.models.odds.odds.Odds) ‑> decimal.Decimal`
+`get_expected_value(implied_probability: decimal.Decimal, final_odds: sportsbooklib.models.odds.Odds) ‑> decimal.Decimal`
 :   Calculate the expected value of a bet.
     
     Args:
@@ -19,7 +19,7 @@ Functions
         Decimal: The expected value of the bet.
 
     
-`get_expected_value_for_legs(leg_odds: List[sportsbooklib.models.odds.odds.Odds], final_odds: sportsbooklib.models.odds.odds.Odds, target_leg: int = 0) ‑> decimal.Decimal`
+`get_expected_value_for_legs(leg_odds: List[sportsbooklib.models.odds.Odds], final_odds: sportsbooklib.models.odds.Odds, target_leg: int = 0) ‑> decimal.Decimal`
 :   Calculate the expected value of a bet for the target_leg index in leg_odds.
     
     Args:

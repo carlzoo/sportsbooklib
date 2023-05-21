@@ -1,5 +1,5 @@
-from sportsbooklib.models.selection.selection import Selection
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.selection import Selection
+from sportsbooklib.models.odds import Odds
 from sportsbooklib.models.odds.enums import OddsFormat
 
 

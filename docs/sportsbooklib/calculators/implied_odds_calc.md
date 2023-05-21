@@ -5,7 +5,7 @@ Functions
 ---------
 
     
-`get_implied_probability(odds: List[sportsbooklib.models.odds.odds.Odds]) ‑> Mapping[str, List[decimal.Decimal]]`
+`get_implied_probability(odds: List[sportsbooklib.models.odds.Odds]) ‑> Mapping[str, List[decimal.Decimal]]`
 :   Given list of Odds, calculate the implied probability and fair odds.
     Based on https://github.com/octosport/octopy/blob/master/octopy/implied.py
     

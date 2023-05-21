@@ -6,7 +6,7 @@ from fractions import Fraction
 import pytest
 from sportsbooklib.models.odds.enums import OddsFormat
 from sportsbooklib.models.odds.exceptions import InvalidOddsFormatException
-from sportsbooklib.models.odds.odds import Odds
+from sportsbooklib.models.odds import Odds
 
 
 def test_invalid_us_less_than_100():

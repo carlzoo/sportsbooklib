@@ -5,8 +5,8 @@ from decimal import Decimal
 
 from sportsbooklib.models.exceptions import InvalidSelectionsInputException
 from sportsbooklib.models.odds.enums import OddsFormat
-from sportsbooklib.models.odds.odds import Odds
-from sportsbooklib.models.selection.selection import Selection
+from sportsbooklib.models.odds import Odds
+from sportsbooklib.models.selection import Selection
 
 
 def test_invalid_empty_selections():
