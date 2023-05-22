@@ -20,7 +20,7 @@ def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:
     -------
     Dict:
         <implied_probability> List[Decimal]: List of implied probability in the respective order of the input odds
-        <fair_odds> List[Decimal]: List of fair odds in the respective order of the input odds
+        <no_vig_probability> List[Decimal]: List of fair odds in the respective order of the input odds
     '''
     if len(odds) < 2:
         raise InvalidNumberOfInputsException
@@ -31,5 +31,5 @@ def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:
     # multiplicative method
     # TODO: support shin, power, additive methods
     normalization = sum(p_i)
-    fair_odds = p_i / normalization
-    return {'implied_probability': p_i, 'fair_odds': fair_odds}
+    no_vig_probability = p_i / normalization
+    return {'implied_probability': p_i, 'no_vig_probability': no_vig_probability}

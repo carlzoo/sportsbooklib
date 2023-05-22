@@ -30,8 +30,8 @@ def get_expected_value_for_legs(leg_odds: List[Odds], final_odds: Odds, target_l
     if target_leg < 0 or target_leg >= len(leg_odds):
         raise InvalidTargetLegException
 
-    implied_fair_odds = get_implied_probability(leg_odds)
-    return get_expected_value(implied_fair_odds['fair_odds'][target_leg], final_odds)
+    implied_probability = get_implied_probability(leg_odds)
+    return get_expected_value(implied_probability['no_vig_probability'][target_leg], final_odds)
 
 
 def get_expected_value_for_selections(selections: List[Selection], final_odds: Odds, target_leg: int = 0) -> Decimal:

@@ -24,7 +24,7 @@ def test_2_odds_equal():
     np.testing.assert_almost_equal(
         res['implied_probability'], [Decimal('0.5238'), Decimal('0.5238')], decimal=4)
     np.testing.assert_almost_equal(
-        res['fair_odds'], [Decimal('0.5'), Decimal('0.5')], decimal=4)
+        res['no_vig_probability'], [Decimal('0.5'), Decimal('0.5')], decimal=4)
 
 
 def test_2_odds_unequal():
@@ -33,7 +33,7 @@ def test_2_odds_unequal():
     np.testing.assert_almost_equal(
         res['implied_probability'], [Decimal('0.5455'), Decimal('0.5')], decimal=4)
     np.testing.assert_almost_equal(
-        res['fair_odds'], [Decimal('0.5217'), Decimal('0.4782')], decimal=4)
+        res['no_vig_probability'], [Decimal('0.5217'), Decimal('0.4782')], decimal=4)
 
 
 def test_3_odds():
@@ -42,4 +42,4 @@ def test_3_odds():
     np.testing.assert_almost_equal(
         res['implied_probability'], [Decimal('0.2762'), Decimal('0.2272'), Decimal('0.2762')], decimal=4)
     np.testing.assert_almost_equal(
-        res['fair_odds'], [Decimal('0.3542'), Decimal('0.2914'), Decimal('0.3542')], decimal=4)
+        res['no_vig_probability'], [Decimal('0.3542'), Decimal('0.2914'), Decimal('0.3542')], decimal=4)
