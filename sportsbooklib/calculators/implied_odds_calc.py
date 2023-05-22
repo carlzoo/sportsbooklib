@@ -3,6 +3,7 @@ from typing import List, Mapping
 import numpy as np
 from sportsbooklib.calculators.exceptions import InvalidNumberOfInputsException
 from sportsbooklib.models.odds import Odds
+from sportsbooklib.models.odds.enums import OddsFormat
 
 
 def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:
@@ -33,3 +34,28 @@ def get_implied_probability(odds: List[Odds]) -> Mapping[str, List[Decimal]]:
     normalization = sum(p_i)
     no_vig_probability = p_i / normalization
     return {'implied_probability': p_i, 'no_vig_probability': no_vig_probability}
+
+
+def get_implied_odds(probability: Decimal) -> Odds:
+    """
+    Calculate the implied odds based on a given probability.
+
+    Args:
+        probability (Decimal): The probability.
+
+    Returns:
+        Odds: The implied odds.
+
+    Raises:
+        None.
+
+    Examples:
+        >>> probability = Decimal('0.5')
+        >>> get_implied_odds(probability)
+        Odds(Decimal('2.0'), 'EU')
+
+        >>> probability = Decimal('0.2')
+        >>> get_implied_odds(probability)
+        Odds(Decimal('5.0'), 'EU')
+    """
+    return Odds(1/probability, OddsFormat.EU)
