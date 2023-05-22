@@ -18,4 +18,4 @@ Functions
     -------
     Dict:
         <implied_probability> List[Decimal]: List of implied probability in the respective order of the input odds
-        <fair_odds> List[Decimal]: List of fair odds in the respective order of the input odds
+        <no_vig_probability> List[Decimal]: List of fair odds in the respective order of the input odds
